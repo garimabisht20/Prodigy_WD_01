@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <title>Restaurant Landing Page</title>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        #navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            transition: background 0.3s;
+            z-index: 1000;
+        }
+
+        #navbar.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-logo a {
+            font-size: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo a i {
+            margin-left: 5px;
+        }
+
+        .nav-list {
+            display: flex;
+        }
+
+        .nav-list li {
+            margin: 0 10px;
+        }
+
+        .nav-list a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        .nav-list a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('restaurant-hotel-table-941861.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        .hero-content button {
+            background: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero-content button a {
+            color: #fff;
+        }
+
+        .hero-content button:hover {
+            background: #2980b9;
+        }
+
+        /* Menu Section */
+        #menu {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .menu-category {
+            margin-bottom: 50px;
+        }
+
+        .menu-category h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .menu-category h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background-color: #3498db;
+        }
+
+        .menu-item {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .menu-item p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        /* Reservation Form */
+        #reservation {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .reservation-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .reservation-form input,
+        .reservation-form textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .reservation-form button {
+            background: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .reservation-form button:hover {
+            background: #2980b9;
+        }
+
+        /* Location and Hours */
+        #location {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .map {
+            height: 400px;
+            margin-bottom: 20px;
+        }
+
+        .hours {
+            font-size: 1.2rem;
+        }
+
+        /* Footer Styles */
+        .footer-content {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-links li {
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-logo">
+            <a href="#">Restaurant<i class="uil uil-utensils"></i></a>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+            <li><a href="#location">Location & Hours</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Restaurant</h1>
+            <p>Enjoy our signature dishes and exquisite dining experience.</p>
+            <button><a href="#reservation">Make a Reservation</a></button>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-category">
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <h3>Bruschetta</h3>
+                <p>Grilled bread topped with diced tomatoes, garlic, and basil.</p>
+                <p class="price">$8</p>
+            </div>
+            <div class="menu-item">
+                <h3>Stuffed Mushrooms</h3>
+                <p>Mushrooms filled with cheese, garlic, and herbs.</p>
+                <p class="price">$10</p>
+            </div>
+        </div>
+        <div class="menu-category">
+            <h2>Main Courses</h2>
+            <div class="menu-item">
+                <h3>Grilled Salmon</h3>
+                <p>Served with a lemon butter sauce and seasonal vegetables.</p>
+                <p class="price">$22</p>
+            </div>
+            <div class="menu-item">
+                <h3>Ribeye Steak</h3>
+                <p>Cooked to perfection, served with mashed potatoes and green beans.</p>
+                <p class="price">$28</p>
+            </div>
+        </div>
+        <div class="menu-category">
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <h3>Chocolate Lava Cake</h3>
+                <p>Warm chocolate cake with a gooey center, served with vanilla ice cream.</p>
+                <p class="price">$8</p>
+            </div>
+            <div class="menu-item">
+                <h3>Cheesecake</h3>
+                <p>Classic cheesecake with a graham cracker crust and berry compote.</p>
+                <p class="price">$7</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservation">
+        <h2>Make a Reservation</h2>
+        <form class="reservation-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone" required>
+            <textarea placeholder="Special Requests" rows="4"></textarea>
+            <button type="submit">Reserve Now</button>
+        </form>
+    </section>
+
+    <section id="location">
+        <h2>Location & Hours</h2>
+        <div class="map">
+            <!-- Embed Google Map iframe here -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153189!3d-37.81627974202116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf57760e9eb634faf!2sRestaurant!5e0!3m2!1sen!2s!4v1601645301239!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="hours">
+            <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+        </div>
+    </section>
+
+    <footer class="section-content footer-content">
+        <ul class="footer-links">
+            <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+            <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+            <li><a href="#"><i class="uil uil-twitter"></i></a></li>
+            <li><a href="#"><i class="uil uil-linkedin"></i></a></li>
+        </ul>
+        <p class="caption">&copy; 2023 Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
